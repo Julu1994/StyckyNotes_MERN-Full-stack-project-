@@ -5,7 +5,7 @@ function Animation(){
     return (
         <div> 
         <h1>Mahamudur Rahman</h1>
-        <p>the full stack developer living in copenhahen, denmark</p>
+        <p>the full stack developer living in copenhahen, denmark. Working as a full stack developer at integrify</p>
         </div>
     )
 };
