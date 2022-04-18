@@ -1,0 +1,55 @@
+@import "./variable.scss";
+@import "./mixins.scss";
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(120deg,#483D8B, #E6E6FA);
+    color: #4c4949;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+}
+
+.mainDiv{
+    margin: 0, auto;
+    
+}
+
+button{
+    border: unset;
+    background: unset;
+    font: unset;
+    color: unset;
+    cursor: pointer;
+
+
+}
+
+a{
+    color: unset;
+    text-decoration: unset;
+    @include link ()
+}
+.iconClass{
+        width: 100%;
+        text-align: center;
+        padding-top: 10px ;
+        background-color: black ;
+        color: white;
+        height: 60px;
+        margin-top: 600px;
+        font-size: 15px;
+}
+.fIcon{
+    margin: 15px 15px 10px 15px;
+
+}
+.fIcon:hover{
+    color: rgb(137, 223, 249);
+    cursor: pointer;
+}
+.copyright{
+    margin: 10px 0 5px 0;
+}

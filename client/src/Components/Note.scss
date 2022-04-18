@@ -1,0 +1,73 @@
+@import "../Style/mixins.scss";
+.noteBox{
+    margin:2rem 0 2rem .8rem;
+    display: flex;
+    align-items: flex-start;
+    flex-flow: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    
+
+
+
+
+}
+.note{
+    margin: 10px 20px; 
+    background: linear-gradient(110deg,#e9e332, #59eeba);
+    min-width: 30%;
+    box-shadow:0 10px 20px #1e2626,  0 7px 7px  #4e565e;
+    flex-direction: column;
+    
+    
+    
+    
+    
+
+}
+
+.heading { 
+        margin: 50px 0 15px  0;
+        padding-top: 30px;
+        text-align: center;
+
+    }
+.desceription{
+    font-family:Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    margin: 20px 0 15px  0;
+    padding: 25px;
+}
+// .deleteButton, .editButton {
+//     @include btn();
+//     margin-right: 2rem;
+
+// }
+.icon{
+    font-size: 30px;
+    color: rgb(108, 79, 157);
+    width: 50px;
+    height: 50px;
+    
+}
+
+.deleteButton .icon:hover{
+    cursor: pointer;
+    color: rgb(255, 7, 135);
+    transition: .8s;
+    transform:rotate(360deg);
+    -webkit-transform:inherit;
+    -ms-transform: rotate(0deg);
+
+};
+.editButton .icon:hover{
+    cursor: pointer;
+    color: rgb(254, 132, 1);
+    transition: .5s;
+    transform:rotate(360deg);
+    -webkit-transform:inherit;
+    -ms-transform: rotate(0deg);
+
+}
