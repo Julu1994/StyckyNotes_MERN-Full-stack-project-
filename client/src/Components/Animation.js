@@ -3,7 +3,10 @@ import React from "react";
 function Animation(){
     console.log("hello there");
     return (
-        <div> Hello there</div>
+        <div> 
+        <h1>Mahamudur Rahman</h1>
+        <p>the full stack developer living in copenhahen, denmark</p>
+        </div>
     )
 };
 
