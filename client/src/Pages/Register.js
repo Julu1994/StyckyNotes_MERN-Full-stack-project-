@@ -6,6 +6,7 @@ const Axios = require('axios').default;
 
 
 export default function Register() {
+    const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] =useState("");
     const [userConfirm, setUserConfirm] = useState("");
@@ -16,6 +17,7 @@ export default function Register() {
     async function serverRegister(event){
         event.preventDefault();
         const userInfo = {
+            name: userName,
             email: userEmail,
             password: userPassword,
             confirm: userConfirm
@@ -34,6 +36,15 @@ export default function Register() {
     <div className = "auth">
     <h2 className="Heading">Create a new Account</h2>
     <form onSubmit={serverRegister}>
+
+    <div className="inputLevel"> 
+    <input 
+        type="text"
+        value={userName}
+        onChange = {(event) => setUserName(event.target.value)}
+        />
+        <label htmlFor="regName">Name</label>
+        </div>
 
     <div className="inputLevel">
 

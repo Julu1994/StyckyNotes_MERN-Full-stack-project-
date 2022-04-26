@@ -1,12 +1,10 @@
 const express = require("express").Router();
-const { Router } = require("react-router");
 const Model = require("../Models/projectModel");
 const middleware1 = require("../Middlewares/middleware");
 
 
 express.get("/", middleware1, async(req, res) => {
     try{
-        console.log(req.user)
         const data = await Model.find({user: req.user});
         res.json(data);  
 

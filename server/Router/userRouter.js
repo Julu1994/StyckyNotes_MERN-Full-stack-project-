@@ -1,12 +1,13 @@
-const router = require("express").Router();
+const express = require("express");
+const router = express.Router();
 const User = require("../Models/userModel")
 const bcrypt = require("bcryptjs");
 const jwtToken = require("jsonwebtoken");  
 
 router.post("/", async (req, res) => {
     try {
-        const {email, password, confirm} = req.body;
-        if (!email || !password || !confirm)
+        const {name, email, password, confirm} = req.body;
+        if (!name || !email || !password || !confirm)
             return res
             .status(400)
             .json({
@@ -42,6 +43,7 @@ router.post("/", async (req, res) => {
         //Adding User 
         
         const newUser = new User ({
+            name,
             email, 
             H_password,
         });
@@ -117,6 +119,23 @@ router.get("/loogedIn", (req, res) => {
     return res.json(null);
     }
 });
+router.get("/loogedName", (req, res) => {
+    try {
+        const token = req.cookies.token;
+        if (!token) return res.json(null);
+        
+        const validatedUser = jwtToken.verify(token, process.env.JWT_TOKEN);
+        const name = validatedUser.name
+        res.json(name)
+        console.log.name
+
+
+
+} catch (error){
+    return res.json(null);
+    }
+});
+
 
 router.get("/logout", (req, res) => {
     try {
