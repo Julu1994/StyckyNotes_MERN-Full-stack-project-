@@ -15,9 +15,10 @@ function Home1() {
     const [notes, setNotes] = useState([]);
     const [noteEditorOpen, setNoteEditorOpen] = useState(false);
     const [editNoteData, setEditNoteData] = useState(null);
-    const [name, setName] = useState(undefined);
+
 
     const {client} = useContext(Context);
+    console.log(client);
 
 
 
@@ -29,10 +30,6 @@ function Home1() {
     async function getNote(){
         const notePath = await Axios.get("http://localhost:4000/routers/");
         setNotes(notePath.data)
-    }
-    async function clientName() {
-        const response = await Axios.get("http://localhost:4000/auth/loogedName");
-        setName(response.data)
     }
 
     function editNote(noteData){
@@ -65,7 +62,7 @@ function Home1() {
         <div className="Home"> 
         {!noteEditorOpen && client &&(
         <div>
-            <h2>{clientName}</h2>
+            <h2></h2>
             <button className="add-btn" onClick={() => setNoteEditorOpen(true)}>Add Note</button>
 
         </div>

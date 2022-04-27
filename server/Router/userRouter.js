@@ -28,6 +28,7 @@ router.post("/", async (req, res) => {
             });
         //Checking existing emails
         const existingEmail = await User.findOne({ email});
+        var existingName = await User.findOne({ name});
         if (existingEmail) 
         return res
         .status(400)
@@ -112,22 +113,12 @@ router.get("/loogedIn", (req, res) => {
         if (!token) return res.json(null);
         
         const validatedUser = jwtToken.verify(token, process.env.JWT_TOKEN);
-        res.json(validatedUser.id)
-
-
-} catch (error){
-    return res.json(null);
-    }
-});
-router.get("/loogedName", (req, res) => {
-    try {
-        const token = req.cookies.token;
-        if (!token) return res.json(null);
+        res.json({
+            id: validatedUser._id,
+            name: existingName
+    
         
-        const validatedUser = jwtToken.verify(token, process.env.JWT_TOKEN);
-        const name = validatedUser.name
-        res.json(name)
-        console.log.name
+        });
 
 
 
@@ -135,6 +126,7 @@ router.get("/loogedName", (req, res) => {
     return res.json(null);
     }
 });
+
 
 
 router.get("/logout", (req, res) => {

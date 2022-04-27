@@ -11,6 +11,7 @@ function ContextObject(props) {
     async function User() {
         const response = await Axios.get("http://localhost:4000/auth/loogedIn");
         setClient(response.data)
+        
     }
     useEffect(() => {
         User()
