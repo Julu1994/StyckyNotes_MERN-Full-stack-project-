@@ -114,8 +114,7 @@ router.get("/loogedIn", (req, res) => {
         
         const validatedUser = jwtToken.verify(token, process.env.JWT_TOKEN);
         res.json({
-            id: validatedUser._id,
-            name: existingName
+            id: validatedUser.id,
     
         
         });

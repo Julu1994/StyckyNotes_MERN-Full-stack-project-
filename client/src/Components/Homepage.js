@@ -1,26 +1,23 @@
 import React, {useState, useEffect, useContext} from "react";
-import Note from "./Note";
-import NoteEditor from "./NoteEditor";
-import "./Home1.scss";
-import Context from "../ReactContext /Context";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import Note from "./Note";
+import NoteEditor from "./NoteEditor";
+import "./Homepage.scss";
+import Context from "../ReactContext /Context";
+
 
 const Axios = require('axios').default;
 const element = <FontAwesomeIcon icon={faCoffee} />
 
 
 
-function Home1() {
+function Homepage() {
+    const [name, setName] = useState([]);
     const [notes, setNotes] = useState([]);
     const [noteEditorOpen, setNoteEditorOpen] = useState(false);
     const [editNoteData, setEditNoteData] = useState(null);
-
-
     const {client} = useContext(Context);
-    console.log(client);
-
-
 
     useEffect(() => {
         if(!client) setNotes([]);
@@ -31,11 +28,15 @@ function Home1() {
         const notePath = await Axios.get("http://localhost:4000/routers/");
         setNotes(notePath.data)
     }
+async function getName(){
+    const userName = await Axios.get("http://localhost:4000/auth");
+    setName(userName.data)
+
+}
 
     function editNote(noteData){
         setEditNoteData(noteData);
         setNoteEditorOpen(true);
-
     }
 
     function renderNote(){
@@ -49,25 +50,21 @@ function Home1() {
             note={note} 
             getNote={getNote}
             editNote ={editNote}
-
             />
-
-        })
-        
-        
-    }
+        });        
+    };
 
 
     return (
         <div className="Home"> 
         {!noteEditorOpen && client &&(
         <div>
-            <h2></h2>
             <button className="add-btn" onClick={() => setNoteEditorOpen(true)}>Add Note</button>
-
+            <h1>{getName}</h1>
         </div>
         )}
         {noteEditorOpen && ( 
+            
         <NoteEditor 
         setNoteEditorOpen ={setNoteEditorOpen} 
         getNote ={getNote}
@@ -76,16 +73,8 @@ function Home1() {
             )}
         {!noteEditorOpen && client && (<div className="noteBox">{renderNote()}</div>)} 
         { !client && (<div><h2 className = "WelcomeS">Welcome to Sticky Notes {element}</h2></div>)} 
-
-
-
-
-
-
-
-
         </div>
     );
 }
 
-export default Home1; 
+export default Homepage; 
