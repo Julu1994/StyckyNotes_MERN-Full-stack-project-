@@ -13,7 +13,6 @@ const element = <FontAwesomeIcon icon={faCoffee} />
 
 
 function Homepage() {
-    const [name, setName] = useState([]);
     const [notes, setNotes] = useState([]);
     const [noteEditorOpen, setNoteEditorOpen] = useState(false);
     const [editNoteData, setEditNoteData] = useState(null);
@@ -28,11 +27,6 @@ function Homepage() {
         const notePath = await Axios.get("http://localhost:4000/routers/");
         setNotes(notePath.data)
     }
-async function getName(){
-    const userName = await Axios.get("http://localhost:4000/auth");
-    setName(userName.data)
-
-}
 
     function editNote(noteData){
         setEditNoteData(noteData);
@@ -60,7 +54,6 @@ async function getName(){
         {!noteEditorOpen && client &&(
         <div>
             <button className="add-btn" onClick={() => setNoteEditorOpen(true)}>Add Note</button>
-            <h1>{getName}</h1>
         </div>
         )}
         {noteEditorOpen && ( 
