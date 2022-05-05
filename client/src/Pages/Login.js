@@ -1,21 +1,18 @@
-import React, { useState, useContext} from 'react';
-import { Link, useHistory} from 'react-router-dom';
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Main.scss";
-import Context from '../ReactContext /Context';
-const Axios = require('axios').default;
-
+import Context from "../ReactContext /Context";
+const Axios = require("axios").default;
 
 export default function Login() {
     const [userEmail, setUserEmail] = useState("");
-    const [userPassword, setUserPassword] =useState("");
+    const [userPassword, setUserPassword] = useState("");
 
-    const {User} = useContext(Context);
+    const { User } = useContext(Context);
 
-    const history = useHistory()
+    const navigate = useNavigate();
 
-
-
-    async function serverLogin(event){
+    async function serverLogin(event) {
         event.preventDefault();
         const userAuth = {
             email: userEmail,
@@ -23,45 +20,48 @@ export default function Login() {
         };
         await Axios.post("http://localhost:4000/auth/login", userAuth);
         await User();
-        history.push("/");
-
-
-
+        navigate("/");
     }
 
-
-
     return (
-    <div className = "auth">
-    <h2 className= "Heading" >Login</h2>
-    <form onSubmit={serverLogin}>
-    <div className="inputLevel">
-    <input 
-        type="email"
-        value={userEmail}
-        onChange = {(event) => setUserEmail(event.target.value)}
-        />
-        <span> </span>
+        <div className="auth">
+            <h2 className="Heading">Login</h2>
+            <form onSubmit={serverLogin}>
+                <div className="inputLevel">
+                    <input
+                        type="email"
+                        value={userEmail}
+                        onChange={(event) => setUserEmail(event.target.value)}
+                    />
+                    <span> </span>
 
-        <label htmlFor="regEmail">Email</label>
-    </div>
+                    <label htmlFor="regEmail">Email</label>
+                </div>
 
-    <div className="inputLevel"> 
-    
-    <input 
-        type="password"
-        value={userPassword}
-        onChange = {(event) => setUserPassword(event.target.value)}
+                <div className="inputLevel">
+                    <input
+                        type="password"
+                        value={userPassword}
+                        onChange={(event) =>
+                            setUserPassword(event.target.value)
+                        }
+                    />
+                    <span> </span>
+                    <label htmlFor="regPassword">Password</label>
+                </div>
 
-
-        />
-        <span> </span>
-        <label htmlFor="regPassword">Password</label>
-    </div>
-
-        <div className ="log"><button type="submit" className = "logBtn">LOGIN</button></div>
-        <p>Don't have an account ? <Link to="/register" style={{ color: "#7B68EE" }}>Create a new account</Link></p>
-    </form>
-    </div>
-    )
-} 
+                <div className="log">
+                    <button type="submit" className="logBtn">
+                        LOGIN
+                    </button>
+                </div>
+                <p>
+                    Don't have an account ?{" "}
+                    <Link to="/register" style={{ color: "#7B68EE" }}>
+                        Create a new account
+                    </Link>
+                </p>
+            </form>
+        </div>
+    );
+}
