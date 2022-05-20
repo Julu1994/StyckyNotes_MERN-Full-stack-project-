@@ -1,8 +1,9 @@
-@import "../Style/mixins.scss";
+@import "../Styles/mixins.scss";
 
-.Home{
+.Home {
     padding: 5rem;
-    .add-btn{
+
+    .add-btn {
         @include btn();
         background: #77cea3;
         position: absolute;
@@ -10,16 +11,17 @@
         left: 30%;
         transform: translate(30%, 20%);
         height: 40px;
-        &:hover {
-            background-color:  #83f4c3; 
-            box-shadow: 0 10px 20px #5a556d,  0 7px 7px  #413e4b;
-    }
-}
-.WelcomeS{
-    color:rgb(216, 230, 176);
-    font-size: 30px;
-    top: 50%;
-    transform: translate(30%, 200%);
 
-}
+        &:hover {
+            background-color: #83f4c3;
+            box-shadow: 0 10px 20px #5a556d, 0 7px 7px #413e4b;
+        }
+    }
+
+    .WelcomeS {
+        color: rgb(216, 230, 176);
+        font-size: 30px;
+        top: 50%;
+        transform: translate(30%, 200%);
+    }
 }

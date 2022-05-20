@@ -4,8 +4,7 @@ import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import Note from "./Note";
 import NoteEditor from "./NoteEditor";
 import "./Homepage.scss";
-import Context from "../ReactContext /Context";
-
+import Context from "../ReactContext/Context";
 const Axios = require("axios").default;
 const element = <FontAwesomeIcon icon={faCoffee} />;
 

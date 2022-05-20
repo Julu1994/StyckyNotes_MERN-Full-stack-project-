@@ -2,10 +2,9 @@ import React, { useContext } from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import "./Navbar.scss";
-import Context from "../ReactContext /Context";
+import Context from "../ReactContext/Context";
 const Axios = require("axios").default;
 
-// import { Navbar, Nav, Container } from "react-bootstrap";
 function Navbarr() {
     const { client, User } = useContext(Context);
 

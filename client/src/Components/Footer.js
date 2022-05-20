@@ -1,30 +1,29 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faFacebookF,
-    faInstagram,
-    faSnapchat,
-    faTwitter,
-    faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+    FaFacebookF,
+    FaYoutube,
+    FaLinkedin,
+    FaGithub,
+    FaSnapchat,
+} from "react-icons/fa";
 
 function Footer() {
     return (
         <div className="iconClass">
             <span className="fIcon">
-                <FontAwesomeIcon icon={faFacebookF} />
+                <FaFacebookF />
             </span>
             <span className="fIcon">
-                <FontAwesomeIcon icon={faYoutube} />
+                <FaYoutube />
             </span>
             <span className="fIcon">
-                <FontAwesomeIcon icon={faSnapchat} />
+                <FaLinkedin />
             </span>
             <span className="fIcon">
-                <FontAwesomeIcon icon={faInstagram} />
+                <FaGithub />
             </span>
             <span className="fIcon">
-                <FontAwesomeIcon icon={faTwitter} />
+                <FaSnapchat />
             </span>
             <p className="copyright">
                 © Copyright 2022 by Mahamudur Rahman Jewel
